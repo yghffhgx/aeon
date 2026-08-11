@@ -90,6 +90,7 @@ case "$H" in
         if [ -n "${OPENAI_BASE_URL:-}" ]; then
           cat > "$HOME/.codex/config.toml" <<TOML
 model_provider = "custom"
+model = "${OPENAI_MODEL:-deepseek-v4-flash}"
 model_reasoning_effort = "medium"
 
 [model_providers.custom]
