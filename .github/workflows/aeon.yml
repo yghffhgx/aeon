@@ -213,6 +213,7 @@ jobs:
           CODEX_AUTH: ${{ secrets.CODEX_AUTH }}
           KIMI_AUTH: ${{ secrets.KIMI_AUTH }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -281,6 +282,7 @@ jobs:
           CODEX_AUTH: ${{ secrets.CODEX_AUTH }}
           KIMI_AUTH: ${{ secrets.KIMI_AUTH }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
           # Tier-2 harness tracing gates the otel-cli install below on these.
@@ -522,6 +524,7 @@ jobs:
           # paths (codex→OpenAI, pi→Anthropic/OpenAI, vibe→Mistral). The OAuth
           # captures need nothing here: their creds are already on disk from install.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           ANTHROPIC_OAUTH_TOKEN: ${{ secrets.ANTHROPIC_OAUTH_TOKEN }}
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
@@ -1195,6 +1198,7 @@ jobs:
           # paths (codex→OpenAI, pi→Anthropic/OpenAI, vibe→Mistral). The OAuth
           # captures need nothing here: their creds are already on disk from install.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           ANTHROPIC_OAUTH_TOKEN: ${{ secrets.ANTHROPIC_OAUTH_TOKEN }}
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
@@ -1388,6 +1392,7 @@ jobs:
           # paths (codex→OpenAI, pi→Anthropic/OpenAI, vibe→Mistral). The OAuth
           # captures need nothing here: their creds are already on disk from install.
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_BASE_URL: ${{ vars.OPENAI_BASE_URL }}
           ANTHROPIC_OAUTH_TOKEN: ${{ secrets.ANTHROPIC_OAUTH_TOKEN }}
           MOONSHOT_API_KEY: ${{ secrets.MOONSHOT_API_KEY }}
           MISTRAL_API_KEY: ${{ secrets.MISTRAL_API_KEY }}
