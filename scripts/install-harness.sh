@@ -85,10 +85,25 @@ case "$H" in
       native-key)
         # OPENAI_API_KEY in env → codex's built-in `openai` provider (its
         # default), on codex's default model. No OpenRouter block.
-        cat > "$HOME/.codex/config.toml" <<'TOML'
+        # If OPENAI_BASE_URL is set (custom OpenAI-compatible gateway), write
+        # an explicit provider so codex does NOT hard-fall to api.openai.com.
+        if [ -n "${OPENAI_BASE_URL:-}" ]; then
+          cat > "$HOME/.codex/config.toml" <<TOML
+model_provider = "custom"
+model_reasoning_effort = "medium"
+
+[model_providers.custom]
+name = "Custom OpenAI-compatible"
+base_url = "$OPENAI_BASE_URL"
+env_key = "OPENAI_API_KEY"
+wire_api = "responses"
+TOML
+        else
+          cat > "$HOME/.codex/config.toml" <<'TOML'
 model_reasoning_effort = "medium"
 TOML
-        echo "codex: OpenAI API key" ;;
+        fi
+        echo "codex: OpenAI API key${OPENAI_BASE_URL:+ (custom base: $OPENAI_BASE_URL)}" ;;
       *)
         # wire_api MUST be "responses": codex 0.144.6 removed "chat" ("no longer
         # supported", a hard config-load error), and OpenRouter does serve
